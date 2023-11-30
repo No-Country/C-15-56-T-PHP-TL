@@ -1,0 +1,30 @@
+# Archivos temporales
+*.DS_Store
+Thumbs.db
+
+# Archivos de configuración
+*.idea
+*.vscode
+.env
+.env.example
+
+# Archivos binarios
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.mp4
+*.webm
+
+# Archivos de pruebas
+*.spec
+*.test
+
+# Archivos de caché
+bootstrap/cache
+storage/framework/cache
+
+# Archivos de logs
+storage/logs
+
+/vendor/
