@@ -6,7 +6,8 @@
     <title>Laravel</title>
 </head>
 <body>
-    <div id="app">go</div>
+    <div id="app"></div>
+    <a href="/mostrar-fecha/">Mostrar Fecha</a>
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

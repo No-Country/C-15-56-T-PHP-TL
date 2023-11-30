@@ -29,3 +29,5 @@ Route::get('/pelicula/{titulo}', function($titulo){
         'titulo' => $titulo
     ));
 });
+
+Route::get('/inicio', 'App\Http\Controllers\InicioController@Home');
