@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <!-- Otras etiquetas head -->
+  @viteReactRefresh
+  @vite("resources/js/app.jsx")
 </head>
 <body>
     <div id="app"></div>
-    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ mix('js/app.jsx') }}"></script>
 </body>
 </html>
