@@ -1,0 +1,98 @@
+*{
+    margin: auto;
+    padding: 0;
+  }
+  
+  /*.App {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  */
+  .contenedor-login{
+    padding-top: 90px;
+    text-align: center;
+    background-color: #005974;
+    height: 95%;
+  }
+  
+  .texto-login{
+    color: #fff;
+    font-weight: 600;
+  
+  }
+  
+  #campoU{
+    padding: 7px 10px;
+    width: 400px;
+    border-radius:5px;
+    border-color: #fff;
+    color: #fff;
+    margin: 15px auto;
+    background-color: #005974;
+    
+  }
+  
+  #campoC{
+    padding: 7px 10px;
+    width: 400px;
+    border-radius:5px;
+    border-color: #fff;
+    color: #fff;
+    margin: 15px auto;
+    background-color: #005974;
+    
+  }
+  
+  #campoU::placeholder{
+    color:  #b3b6b7  ;
+  
+  }
+  #campoC::placeholder{
+    color:  #b3b6b7  ;
+  
+  }
+  #boton-login{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    width: 400px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #005974;
+    font-weight:600;
+    color: #00FF29;
+    border-color: #00FF29;
+    
+  }
+  
+  .registro{
+    color: black;
+    font-weight: 600;
+    
+  }
+  .pie{
+    background-color: rgb(34, 33, 33);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 18px 0px;
+    margin: 190px auto auto 0;
+  }
+  
+  
+  .texto-iniciasesion{
+    font-size: 25px;
+  }
+  
+  p{
+    font-size: 13px;
+    
+  }
+  
+  /* Texto registrate */
+  .texto-extra{
+    color: #fff;
+    font-size: 13px;
+  }

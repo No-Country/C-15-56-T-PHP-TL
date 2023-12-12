@@ -1,0 +1,40 @@
+.contenedor-nav{
+    height: 50px;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+}
+
+#nav-menu{
+    background-color: #005974;
+    border-bottom: 2px solid #fff;
+    align-content: space-around;
+}
+
+#hambur{
+    border: 2px solid #fff;
+
+    margin-right: 10px;
+}
+#hambur span{
+    color: #fff;
+}
+
+.logo-texto{
+    font-family: 'Righteous',sans-serif;
+    font-weight: 600;
+    padding-left: 50px;
+
+}
+
+.icono-buscar{
+    width: 100%;
+}
+
+#enlaces-menu a{
+    font-weight: 600;
+    color: #b3b6b7;
+}
+
+#enlaces-menu a.active{
+    color: chartreuse;
+}

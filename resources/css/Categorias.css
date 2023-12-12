@@ -1,0 +1,87 @@
+.texto-img{
+    padding: 10px auto;
+    margin: 10px auto;
+    width: 90%;
+    max-height:300px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    /*border-bottom: 1px solid #005974;
+    background-color: cornflowerblue;*/
+}
+
+.texto-inicio h2{
+    font-weight: 700;
+    font-size: 38px;
+    margin: 10px auto;
+}
+
+.texto-inicio p{
+    font-size: 16px;
+}
+
+.contenedor-img{
+    width:400px; /* o cualquier otro valor que desees para el ancho del contenedor */
+    height: 220px; /* o cualquier otro valor que desees para la altura del contenedor */
+    overflow: hidden;
+    align-items: center;
+}
+  
+.fotoInicio {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto mantiene la proporción original y corta la imagen si es necesario para ajustarse al contenedor */
+  }
+
+  .linea-sep{
+    width: 85%;
+    margin: 2px auto;
+    color:#005974;
+    
+  }
+
+.texto-seccion{
+    margin: 25px auto;
+    width: 90%;
+}
+.seccion-categorias{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.categoria{
+    width: 200px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.img-categoria{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.titulo-categoria{
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.pie{
+    background-color: rgb(34, 33, 33);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 18px 0px;
+    margin: 190px auto auto 0;
+    text-align: center;
+  }
+
+  .lista-categorias{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+
+  }
