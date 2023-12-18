@@ -1,13 +1,14 @@
 import React from 'react';
 import '../../css/app.css';
-import fotoLimpieza from '../../imgs/limpieza.jpg'
+import fotoLimpieza from '../../imgs/limpieza-dibujo.jpg'
 import '../../css/Inicio.css';
 
 import jabonesImage from '../../imgs/jabones.jpg';
 import esponjaImg from '../../imgs/esponjas.jpg';
 import perfumeImg from '../../imgs/perfumes.jpg';
 import limpiadorImg from '../../imgs/limpiadores.jpg';
-
+import papel from '../../imgs/papeles.webp';
+import insectos from '../../imgs/insecticida.webp';
 
 <img className='img-categoria' src={jabonesImage} alt=''/>
 
@@ -53,10 +54,48 @@ function Inicio(){
                     </div>
                     <div className='categoria'>
                         <div className='contenedor-img-categoria'>
+                            <img className='img-categoria' src={papel} alt=''/>
+                        </div>
+                        <h6 className='titulo-categoria'>Papeleria</h6>
+                    </div>
+
+                    <div className='categoria'>
+                        <div className='contenedor-img-categoria'>
                             <img className='img-categoria' src={limpiadorImg} alt=''/>
                         </div>
                         <h6 className='titulo-categoria'>Detergentes</h6>
                     </div>
+                    <div className='categoria'>
+                        <div className='contenedor-img-categoria'>
+                            <img className='img-categoria' src={limpiadorImg} alt=''/>
+                        </div>
+                        <h6 className='titulo-categoria'>Insecticidas</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div className='texto-seccion'>
+                <h4>Conoce las marcas mas elegidas</h4>
+                <div className='seccion-categorias' >
+                    <div className='categoria'>
+                        <div className='contenedor-img-categoria'>
+                            <img className='img-categoria' src={jabonesImage} alt=''/>
+                        </div>
+                        <h6 className='titulo-categoria'>Rexona</h6>
+                    </div>
+                    <div className='categoria'>
+                        <div className='contenedor-img-categoria'>
+                            <img className='img-categoria' src={esponjaImg} alt=''/>
+                        </div>
+                        <h6 className='titulo-categoria'>ALA</h6>
+                    </div>
+                    <div className='categoria'>
+                        <div className='contenedor-img-categoria'>
+                            <img className='img-categoria' src={perfumeImg} alt=''/>
+                        </div>
+                        <h6 className='titulo-categoria'>Poett</h6>
+                    </div>
+                    
                 </div>
             </div>
         <div >
