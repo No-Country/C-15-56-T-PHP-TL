@@ -1,12 +1,19 @@
 // resources/js/app.jsx
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+
+import { TiendaProvider } from "../context/TiendaProvider";
+import { CartProvider } from "../context/CartContext";
+
 import Inicio from './components/Inicio';
 import Menu from './components/Menu';
 import Login from "./components/Login";
 import Categorias from "./components/Categorias";
 import MiCuenta from "./components/MiCuenta";
 import Carrito from "./components/Carrito";
+import Productos from "./components/Productos";
+import Compra from "./components/Compra";
+
 import { BrowserRouter as Router, Routes, Route, BrowserRouter} from 'react-router-dom';
 
 
@@ -15,13 +22,17 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 //selector de menu
 const navLinks = [
     {title: "Inicio", path:"/"},
-    {title: "Categorias", path:"/categorias"},
+    {title: "Productos", path:"/categorias"},
     {title: "Contacto", path:"/contacto"},
     {title: "Inicia sesión", path:"/login"},
-    {title: "Carrito", path:"/carrito"}
-   
   ];
 
+const navLinks2 = [
+    {title: "Inicio", path:"/"},
+    {title: "Productos", path:"/categorias"},
+    {title: "Contacto", path:"/contacto"},
+    {title: "Cerrar sesión", path:"/login"}
+];
 
 function App() {
 
@@ -32,9 +43,11 @@ function App() {
 
     return (
         <div className="App">
+            <CartProvider>
+
             <BrowserRouter>
             <Menu 
-                navLinks={navLinks}
+                navLinks={navLinks2}
                 allProducts={allProducts}
                 setAllProducts={setAllProducts}
                 total={total}
@@ -50,9 +63,12 @@ function App() {
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/micuenta" element={<MiCuenta/>}/>
                 <Route path="/carrito" element={<Carrito/>}/>
+                <Route path="/productos" element={<Productos/>}/>
+                <Route path="/compra" element={<Compra/>}/>
             </Routes>
             </BrowserRouter>
-            
+                            
+            </CartProvider>
         </div>
     );
 }

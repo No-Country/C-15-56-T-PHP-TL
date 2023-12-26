@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +19,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/productos', "app\Http\Controllers\MysqlController@obtenerProductos");
+Route::get('/productos', [ProductController::class, 'index']);
+Route::get('/categorias1', [CategoriaController::class, 'index']);

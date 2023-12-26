@@ -22,7 +22,7 @@
 .logo-texto{
     font-family: 'Righteous',sans-serif;
     font-weight: 600;
-    padding-left: 50px;
+    padding-left: 150px;
 
 }
 
@@ -30,11 +30,35 @@
     width: 100%;
 }
 
+#enlaces-menu{
+    padding-left: 400px;
+}
+
 #enlaces-menu a{
     font-weight: 600;
     color: #b3b6b7;
+   
+    
 }
 
 #enlaces-menu a.active{
     color: chartreuse;
+}
+
+
+/* estilo del carrito */
+
+.container-cart-products{
+    border: 1px solid gray;
+    padding: 15px 10px;
+    text-align: center;
+}
+
+.container-icon{
+    padding: 6px;
+}
+
+.icon-cart{
+    width: 30px;
+    color: #fff;
 }

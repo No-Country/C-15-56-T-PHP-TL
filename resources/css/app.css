@@ -3,6 +3,12 @@
     padding: 0;
   }
   
+  .tituloSimple{
+      font-weight: 600;
+    color:#005974;
+    margin-bottom:20px;
+    text-transform:uppercase;
+  }
   /*.App {
     text-align: center;
     display: flex;

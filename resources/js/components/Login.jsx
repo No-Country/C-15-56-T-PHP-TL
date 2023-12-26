@@ -1,11 +1,13 @@
 import React, {useRef, useState} from 'react';
 import { Alert, Button, Form } from 'react-bootstrap';
 import '../../css/app.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import MiCuenta from './MiCuenta';
+
 
 function Login({setUser }){
 
+    const sesion = "";
     const userRef = useRef();
     const errorRef = useRef();
     
@@ -16,8 +18,7 @@ function Login({setUser }){
     const [clave, setClave] = useState("");
     const [error, setError] = useState(false);
 
-    const [userFocus, setUserFocus] = useState(false);
-
+    const navigate = useNavigate();
 
     const user_validation = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
     const clave_validation =/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -26,27 +27,29 @@ function Login({setUser }){
         e.preventDefault();
         if(usuario === "" || clave === ""){
             alert("Ingresa los datos en el formulario");
-            //setError(true);
             return
         } else{
-            if(usuario === "admin" && clave === "123"){
+            if(usuario === "laury@gmail.com" && clave === "admin"){
                 setLogueado(true);
+                // setTimeout(() => {
+                //     navigate('/');
+                // }, 2000);
+                navigate('/inicio?sesion=Laury');
                 
-                
-            
             }else{
                 setLogueado(false);
                 alert("El correo electrónico o la contraseña no son correctas");
-                // <Alert variant='danger' onClose={() => setShow(false)} dismissible>
-                //   El correo electrónico o la contraseña no son correctas</Alert>
             }
         }
         setError(false)
     }
 
+
     return(
-        
+        <>
+
             <div className='contenedor-login'>
+                
                 <div className='texto-login'>
                     <p className='texto-iniciasesion'>Inicia Sesión</p>
                     <p>Por favor, ingresa tu correo electrónico y contraseña</p>
@@ -83,6 +86,7 @@ function Login({setUser }){
                     <p className='pie'>MERKATODO @ 2023</p>
                 </div>
             </div>
+            </>
     );
 }
 

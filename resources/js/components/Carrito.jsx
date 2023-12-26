@@ -1,91 +1,105 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import '../../css/Carrito.css';
-
+import Compra from "./Compra";
 import  {Button, Form, FormControl, Row, Col } from 'react-bootstrap';
+import { BrowserRouter as Router, Link, useLocation } from 'react-router-dom';
 
 function Carrito(){
+
+    const location = useLocation();
+    const cartData = location.state.cartData || [];
+    const [precioTotal, setPrecioTotal] = useState(0);
+    const [subTotal, setSubTotal] = useState(0);
+
+    const guardarCarrito = () => {
+        cartData.map(cart => (
+            setPrecioTotal(cart.precio)
+        ));
+
+    }
+    useEffect(() => {
+        guardarCarrito();
+    }, []);
+
     return (
-    <div class="container-carrito">
-        <div class="row">
-            <div class="col-lg">
+    <div className="container-carrito">
+        <div className="row">
+            <div className="col-lg">
                 
                 <Row className="heading-cart">
-                    <Col class="col-xs-6">
-                        <h5><span class="glyphicon glyphicon-shopping-cart"></span>Carrito de Compras</h5>
-                    </Col>
-                    <Col class="col-xs-6">
-                        <button type="button" class="btn btn-primary btn-sm btn-block">
-                            <span class="glyphicon glyphicon-share-alt"></span> Continuar comprando
-                        </button>
+                    <Col className="col-xs-6">
+                        <h4 className="tituloSimple">Carrito de Compras</h4>
                     </Col>
                 </Row>
                 
-                <div class="table-cart">
+               <Row>
+                    <Col md={12}>
+                        <div className="table-cart">
                     <table>
                         <thead>
                             <tr>
                                 <th>Producto</th>
                                 <th>Precio</th>
                                 <th>Cantidad</th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <div class="display-flex align-center">
-                                        <div class="img-product">
-                            
-                                            <img class="img-responsive" src={"http://placehold.it/100x70"}/>
-                                    
-                                        </div>
-                                        <div class="name-product">
-                                            <h4 class="product-name"><strong>Product name</strong></h4>
-                                            <h4><small>Product description</small></h4>
+                        {cartData.map(cart => (
                         
-                                            
+                            <tr key={cart.id_productos}>
+                                <td>
+                                    <div className="display-flex align-center">
+                                        <div className="img-product">
+                                            <img className="img-responsive" src={cart.imagen}/>
                                         </div>
-                                        
+                                        <div className="name-product">
+                                            <h4 className="product-name"><strong>{cart.nombre_producto} {cart.nombre_marca}</strong></h4>
+                                            <h4><small>{cart.descripcion}</small></h4>
+                                        </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="price">
-                                                $1,250.00
-                                            </div>
-                                    </td>
-                                <td class="product-count">
-                                    <form action="#" class="count-inlineflex">
-                                        
-                                        <Form.Control type="text" name="quantity" value="1" class="qty"/>
-                                        
+                                    <div className="price">$ {cart.precio}</div>
+                                    
+                                </td>
+                                <td className="product-count">
+                                    <form action="#">
+                                        <Form.Control type="text" name="quantity" min="1" className="qty" placeholder="1"/>
                                     </form>
                                 </td>
-                            
                             </tr>
+        
+                            ))} 
                         </tbody>
                     </table>
-                </div>
-                <hr/> 
-                <div class="panel-footer">
-                    <div class="row text-center">
-                        <div class="col-xs-9">
-                            <h4 class="text-right">Total <strong>$50.00</strong></h4>
                         </div>
-                        <div class="col-xs-3">
-                            <button type="button" class="btn btn-success btn-block">
-                                Checkout
-                            </button>
+                        <hr/> 
+                        <div className="panel-footer">
+                            <Row className="row text-center">
+                                <Col className="col-xs-3">
+                                    <Link className="btn btn-info btn-sm btn-block" to={'/'}>
+                                        Continuar comprando
+                                    </Link>
+                                </Col>
+                                <Col>
+                                    <h4>Total <strong class="price-total">$ {precioTotal}</strong></h4>
+                                </Col>
+                                <Col>
+                                    <Link className="btn btn-success btn-sm btn-block" 
+                                        to="/compra"
+                                        state={{cartData} }>
+                                        Terminar Compra</Link>
+                                </Col>
+                            </Row>
+                        
                         </div>
-                    </div>
-                </div>
+                    </Col>
+               </Row>
+                
+                 
             </div>
-
-        
         </div>
-    </div>
-            
-    
-            
+    </div>          
         
     );
 }

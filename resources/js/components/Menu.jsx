@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import '../../css/Menu.css';
 import { Navbar, Nav, Form, InputGroup } from 'react-bootstrap';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { useCart } from '../../context/CartContext';
 
 function Menu({navLinks, allProducts,
 	setAllProducts,
@@ -33,9 +34,13 @@ function Menu({navLinks, allProducts,
         setEnlaceActivo(nombreEnlace);
       };
 
-    function cerrarSesion(){
+    const [cartProducts, setCartProducts] = useState([]);
 
-    }
+    const updateCart = newProducts => {
+        setCartProducts(newProducts);
+    };
+
+    const {cartCount, cartData} = useCart();
 
     return(
 
@@ -43,19 +48,7 @@ function Menu({navLinks, allProducts,
             <Navbar expand="lg" id='nav-menu'>
                 <Navbar.Brand href="#" className='logo-texto' style={{"color":"#fff","fontSize":"28px"}}>MERKATODO</Navbar.Brand>
                 <Navbar.Toggle id='hambur' aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse className="basic-navbar-nav">
-
-                <Form inline="true">
-                    <InputGroup>
-                        <Form.Control
-                            placeholder="Buscar por categoria..."
-                            aria-label="Buscar por categoria"
-                        />
-                        {/*<InputGroup.Text id="basic-addon1">Buscar
-                         <img className='icono-buscar' src={require('../imgs/search_icon.png')} alt='icono-buscar'/>
-                        </InputGroup.Text> */}
-                    </InputGroup>
-                </Form>
+                <Navbar.Collapse className="basic-navbar-nav justify-content-end">
                 <Nav id="enlaces-menu" style={{"fontSize":"14px"}}>
                     {navLinks.map((item) => (
                         <Nav.Link 
@@ -68,8 +61,16 @@ function Menu({navLinks, allProducts,
                             {item.title}
                         </Nav.Link>
                     ))}
+                    <Link
+                        style={{"text-decoration": "none"}}
+                        type='button'
+                        className='btn-sm'
+                        variant="info"
+                        to="/carrito"
+                        state={{ cartData }}
+                    >Carrito <strong>({cartCount})</strong></Link>
 
-                    <div className='container-icon'>
+                    {/* <div className='container-icon'>
                         <div
                             className='container-cart-icon'
                             onClick={() => setActive(!active)}
@@ -98,20 +99,22 @@ function Menu({navLinks, allProducts,
                                 active ? '' : 'hidden-cart'
                             }`}
                         >
-                            {allProducts.length ? (
+                            {cartProducts.length === 0 ? (
+                                <p className='cart-empty'>El carrito está vacío</p>
+                            ) : (
                                 <>
                                     <div className='row-product'>
-                                        {allProducts.map(product => (
-                                            <div className='cart-product' key={product.id}>
+                                        {cartProducts.map(product => (
+                                            <div className='cart-product' key={product.id_productos}>
                                                 <div className='info-cart-product'>
                                                     <span className='cantidad-producto-carrito'>
                                                         {product.quantity}
                                                     </span>
                                                     <p className='titulo-producto-carrito'>
-                                                        {product.nameProduct}
+                                                        {product.nombre_producto}
                                                     </p>
                                                     <span className='precio-producto-carrito'>
-                                                        ${product.price}
+                                                        ${product.precio}
                                                     </span>
                                                 </div>
                                                 <svg
@@ -142,11 +145,10 @@ function Menu({navLinks, allProducts,
                                         Vaciar Carrito
                                     </button>
                                 </>
-                            ) : (
-                                <p className='cart-empty'>El carrito está vacío</p>
                             )}
                         </div>
-                    </div>
+          
+                    </div> */}
                 </Nav>
                 </Navbar.Collapse>
             </Navbar>
